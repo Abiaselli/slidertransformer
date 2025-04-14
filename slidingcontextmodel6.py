@@ -1861,7 +1861,7 @@ class ReasoningModelGUI:
 
                                 logging.info("Loss backward computed")
                                 n=+1
-                                print(f"Iteration {n}, step: {t}, Loss: {step_loss.item()}")
+                                print(f"Iteration {i}, step: {t}, Loss: {step_loss.item()}")
                                 src = src.detach()
                                 tgt_ids = tgt_ids.detach()
                                 for name, param in self.model.named_parameters():
