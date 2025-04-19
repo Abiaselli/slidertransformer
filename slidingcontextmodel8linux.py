@@ -488,7 +488,7 @@ class MiniTransformerNode(nn.Module):
         elif tgt_ids is not None and mode == "eval":
             tgt_ids = tgt_ids
             #tgt_ids = tgt_ids[:, 1:]
-            print(f"\n🚀 FORWARD: src shape {src.shape}, tgt shape {tgt_ids.shape}")
+            #print(f"\n🚀 FORWARD: src shape {src.shape}, tgt shape {tgt_ids.shape}")
         elif tgt_ids is not None and tgt_ids.size(1) == 0:
             raise ValueError("❌ Decoder input has 0 length!")
         if src.dim() == 2:  
@@ -496,11 +496,11 @@ class MiniTransformerNode(nn.Module):
             if src.max() >= self.tokenizer.vocab_size:
                 print("⚠️ Warning: Token ID exceeds vocab range.")
                 src = src.clamp(0, self.tokenizer.vocab_size - 1)
-            print(f"src shape main call: {src.shape} ")
+            #print(f"src shape main call: {src.shape} ")
             src_emb = self.embedding(src)  # Shape: (batch_size, seq_length, embed_size)
             src_mask, tgt_pad_mask, causal_mask = self.generate_mask(src, tgt_ids if tgt_ids is not None else src)
         else:  
-            print(f"backup src call src shape: {src.shape} ")
+            #print(f"backup src call src shape: {src.shape} ")
             src_emb = src # If already embeddings, use them
             _, tgt_pad_mask, causal_mask = self.generate_mask(src, tgt_ids if tgt_ids is not None else src)
 
@@ -1028,7 +1028,7 @@ class ReasoningModelGUI:
         self.select_log_file()
 
         # Setup logging
-        logging.basicConfig(filename=self.log_file_path, level=logging.DEBUG,
+        logging.basicConfig(filename=self.log_file_path, level=logging.INFO,
                             format='%(asctime)s - %(levelname)s - %(message)s')
 
         logging.info(f"Using device: {self.device}")
