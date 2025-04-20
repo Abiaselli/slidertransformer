@@ -1083,7 +1083,7 @@ class ReasoningModelGUI:
         ttk.Button(transformer_frame, text="Select Model File", command=self.select_model_file).grid(row=3, column=2, pady=5)
 
         # Architecture selection
-        self.architecture = tk.StringVar(value="Reasoning Nodel")
+        self.architecture = tk.StringVar(value="Reasoning Model")
         ttk.Label(transformer_frame, text="Select Architecture:").grid(row=0, column=2, sticky="w")
         ttk.Combobox(transformer_frame, textvariable=self.architecture, values=["Reasoning Model", "Cascade Transformer"], state="readonly").grid(row=0, column=3)
 
