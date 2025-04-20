@@ -1402,7 +1402,7 @@ class ReasoningModelGUI:
     def select_tokenizer(self):
         try:
     
-            self.tokenizer_path = filedialog.askdirectory(title="Select Dataset Directory")
+            self.tokenizer_path = filedialog.askdirectory(title="Select Tokenizer Directory")
 
             if self.tokenizer_path:
                 messagebox.showinfo("Success", f"Tokenizer file selected: {self.tokenizer_path}")
